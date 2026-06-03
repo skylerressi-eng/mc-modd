@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "wroughtiron:block/steel_lantern"
+    },
+    "hanging=true": {
+      "model": "wroughtiron:block/steel_lantern_hanging"
+    }
+  }
+}

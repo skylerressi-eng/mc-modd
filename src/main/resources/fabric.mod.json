@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "wroughtiron",
+	"version": "${version}",
+
+	"name": "Wrought Iron & Steel",
+	"description": "Refine iron the old-fashioned way. Smelt iron into wrought iron, forge steel from iron and charcoal, and build with a full set of wrought iron and steel tools, armor, and decorative blocks (bars, lanterns, chains, doors and trapdoors). Inspired by Mogswamp's 'The iron problem' short.",
+	"authors": [
+		"skylerressi"
+	],
+	"contact": {
+		"sources": "https://github.com/skylerressi-eng/mc-modd"
+	},
+
+	"license": "MIT",
+	"icon": "assets/wroughtiron/icon.png",
+
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.mcmodd.wroughtiron.WroughtIronMod"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

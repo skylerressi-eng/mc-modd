@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/chain",
+  "textures": {
+    "all": "wroughtiron:block/wrought_iron_chain",
+    "particle": "wroughtiron:block/wrought_iron_chain"
+  }
+}

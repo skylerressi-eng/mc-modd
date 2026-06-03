@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "key": {
+    "X": "wroughtiron:steel_ingot",
+    "#": "minecraft:stick"
+  },
+  "result": {
+    "id": "wroughtiron:steel_sword",
+    "count": 1
+  }
+}

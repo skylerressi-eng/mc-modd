@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "N",
+    "I",
+    "N"
+  ],
+  "key": {
+    "N": "wroughtiron:wrought_iron_nugget",
+    "I": "wroughtiron:wrought_iron_ingot"
+  },
+  "result": {
+    "id": "wroughtiron:wrought_iron_chain",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XX",
+    "XX",
+    "XX"
+  ],
+  "key": {
+    "X": "wroughtiron:steel_ingot"
+  },
+  "result": {
+    "id": "wroughtiron:steel_door",
+    "count": 3
+  }
+}

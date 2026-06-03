@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "key": {
+    "X": "wroughtiron:steel_ingot"
+  },
+  "result": {
+    "id": "wroughtiron:steel_trapdoor",
+    "count": 1
+  }
+}

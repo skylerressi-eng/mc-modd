@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": "wroughtiron:steel_ingot"
+  },
+  "result": {
+    "id": "wroughtiron:steel_block",
+    "count": 1
+  }
+}

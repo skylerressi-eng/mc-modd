@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "wroughtiron:steel_ingot"
+  ],
+  "result": {
+    "id": "wroughtiron:steel_nugget",
+    "count": 9
+  }
+}

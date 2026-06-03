@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "wroughtiron:wrought_iron_block",
+    "wroughtiron:steel_block"
+  ]
+}

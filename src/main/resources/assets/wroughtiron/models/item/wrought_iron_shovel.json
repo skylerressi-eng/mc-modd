@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "wroughtiron:item/wrought_iron_shovel"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": "wroughtiron:steel_nugget"
+  },
+  "result": {
+    "id": "wroughtiron:steel_ingot",
+    "count": 1
+  }
+}

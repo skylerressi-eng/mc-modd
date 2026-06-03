@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "wroughtiron:wrought_iron_ingot"
+  ],
+  "result": {
+    "id": "wroughtiron:wrought_iron_nugget",
+    "count": 9
+  }
+}

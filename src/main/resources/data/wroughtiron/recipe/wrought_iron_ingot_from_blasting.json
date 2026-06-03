@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "minecraft:iron_ingot",
+  "result": {
+    "id": "wroughtiron:wrought_iron_ingot"
+  },
+  "experience": 0.1,
+  "cookingtime": 100,
+  "group": "wrought_iron_ingot"
+}

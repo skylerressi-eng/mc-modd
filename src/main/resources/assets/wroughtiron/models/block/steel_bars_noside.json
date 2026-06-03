@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_noside",
+  "textures": {
+    "pane": "wroughtiron:block/steel_bars",
+    "edge": "wroughtiron:block/steel_bars"
+  }
+}

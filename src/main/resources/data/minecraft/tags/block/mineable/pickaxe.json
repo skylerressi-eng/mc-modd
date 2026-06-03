@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "wroughtiron:wrought_iron_block",
+    "wroughtiron:wrought_iron_bars",
+    "wroughtiron:wrought_iron_lantern",
+    "wroughtiron:wrought_iron_chain",
+    "wroughtiron:wrought_iron_door",
+    "wroughtiron:wrought_iron_trapdoor",
+    "wroughtiron:steel_block",
+    "wroughtiron:steel_bars",
+    "wroughtiron:steel_lantern",
+    "wroughtiron:steel_chain",
+    "wroughtiron:steel_door",
+    "wroughtiron:steel_trapdoor"
+  ]
+}

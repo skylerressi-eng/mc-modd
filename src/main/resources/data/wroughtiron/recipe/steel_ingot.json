@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:charcoal",
+    "minecraft:charcoal"
+  ],
+  "result": {
+    "id": "wroughtiron:steel_ingot",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "NNN",
+    "NTN",
+    "NNN"
+  ],
+  "key": {
+    "N": "wroughtiron:steel_nugget",
+    "T": "minecraft:torch"
+  },
+  "result": {
+    "id": "wroughtiron:steel_lantern",
+    "count": 1
+  }
+}
