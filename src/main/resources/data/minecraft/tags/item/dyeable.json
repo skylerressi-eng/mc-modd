@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "wroughtiron:dyeable_wool",
-    "wroughtiron:dyeable_name_tag"
+    "wroughtiron:dyed_water",
+    "wroughtiron:dyeable_name_tag",
+    "wroughtiron:dyeable_horse_armor"
   ]
 }

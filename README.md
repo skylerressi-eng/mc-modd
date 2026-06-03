@@ -36,7 +36,26 @@ Helmet, Chestplate, Leggings, Boots.
 - **Chain** — decorative metal chain.
 - **Door** & **Trapdoor** — redstone-operated, like vanilla iron doors.
 
-Everything is gathered into a dedicated **Wrought Iron & Steel** creative tab.
+Everything is gathered into a dedicated creative tab.
+
+## Dye rework
+
+Adds a "dye anything" system built on the same mechanic as leather armor — put the
+item in a crafting grid with dyes and **mix to any shade imaginable** (e.g. blue +
+pink → a custom purple). Combine two already-dyed items to blend their colors.
+
+| Item | How it works |
+| --- | --- |
+| **Dyeable Wool** | Craft from white wool, then dye to any color. The block remembers its shade (stored in a block entity) and drops it back when broken. |
+| **Dyed Water** | A translucent, any-shade "water" block for pools and fountains (craft from glass + a dye, then re-dye freely). |
+| **Dyeable Name Tag** | Names a mob in your chosen dye color. Apply a **glow ink sac** to it and the named mob also gets a permanent glowing outline. |
+| **Dyeable Horse Armor** | Horse armor you can tint to any shade, the same way. |
+
+> **Why "Dyed Water" is a block, not flowing water:** Minecraft fluids have no
+> per-block data, so a *flowing* fluid can't carry an arbitrary mixed color. A
+> colored block is what makes the "every shade" mechanic possible. A fixed-palette
+> flowing fluid and dyeable item frames (a custom entity + renderer) are the two
+> pieces that still need a compile pass to finish safely — see the build note below.
 
 ## Building
 

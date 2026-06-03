@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:leather_horse_armor"
+  ],
+  "result": {
+    "id": "wroughtiron:dyeable_horse_armor",
+    "count": 1
+  }
+}

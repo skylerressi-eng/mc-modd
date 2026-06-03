@@ -35,5 +35,7 @@
   "block.wroughtiron.steel_door": "Steel Door",
   "block.wroughtiron.steel_trapdoor": "Steel Trapdoor",
   "block.wroughtiron.dyeable_wool": "Dyeable Wool",
-  "item.wroughtiron.dyeable_name_tag": "Dyeable Name Tag"
+  "item.wroughtiron.dyeable_name_tag": "Dyeable Name Tag",
+  "block.wroughtiron.dyed_water": "Dyed Water",
+  "item.wroughtiron.dyeable_horse_armor": "Dyeable Horse Armor"
 }

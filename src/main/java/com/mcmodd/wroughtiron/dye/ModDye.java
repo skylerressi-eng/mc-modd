@@ -10,6 +10,8 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.component.DataComponentType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
+import net.minecraft.item.AnimalArmorItem;
+import net.minecraft.item.ArmorMaterials;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.network.codec.PacketCodecs;
@@ -62,6 +64,33 @@ public final class ModDye {
 			new DyeableNameTagItem(new Item.Settings().maxCount(64).component(DataComponentTypes.DYED_COLOR,
 					new DyedColorComponent(0xFFFFFF, false))));
 
+	// ----- Dyeable water (translucent, any-shade decorative block) -----
+	public static final Block DYED_WATER = Registry.register(
+			Registries.BLOCK,
+			Identifier.of(WroughtIronMod.MOD_ID, "dyed_water"),
+			new DyedWaterBlock(AbstractBlock.Settings.create()
+					.strength(0.4F).sounds(BlockSoundGroup.GLASS).nonOpaque()
+					.allowsSpawning((state, world, pos, type) -> false)));
+
+	public static final Item DYED_WATER_ITEM = Registry.register(
+			Registries.ITEM,
+			Identifier.of(WroughtIronMod.MOD_ID, "dyed_water"),
+			new BlockItem(DYED_WATER, new Item.Settings().component(DataComponentTypes.DYED_COLOR,
+					new DyedColorComponent(DyedWaterBlockEntity.DEFAULT_COLOR, false))));
+
+	public static final BlockEntityType<DyedWaterBlockEntity> DYED_WATER_BLOCK_ENTITY = Registry.register(
+			Registries.BLOCK_ENTITY_TYPE,
+			Identifier.of(WroughtIronMod.MOD_ID, "dyed_water"),
+			FabricBlockEntityTypeBuilder.create(DyedWaterBlockEntity::new, DYED_WATER).build());
+
+	// ----- Dyeable horse armor (leather-based, so it tints on the horse) -----
+	public static final Item DYEABLE_HORSE_ARMOR = Registry.register(
+			Registries.ITEM,
+			Identifier.of(WroughtIronMod.MOD_ID, "dyeable_horse_armor"),
+			new AnimalArmorItem(ArmorMaterials.LEATHER, AnimalArmorItem.Type.EQUESTRIAN,
+					new Item.Settings().maxCount(1).component(DataComponentTypes.DYED_COLOR,
+							new DyedColorComponent(0xA06540, false))));
+
 	private ModDye() {
 	}
 
@@ -71,7 +100,9 @@ public final class ModDye {
 				Identifier.of(WroughtIronMod.MOD_ID, "general"));
 		ItemGroupEvents.modifyEntriesEvent(group).register(entries -> {
 			entries.add(DYEABLE_WOOL_ITEM);
+			entries.add(DYED_WATER_ITEM);
 			entries.add(DYEABLE_NAME_TAG);
+			entries.add(DYEABLE_HORSE_ARMOR);
 		});
 	}
 }

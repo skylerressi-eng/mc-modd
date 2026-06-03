@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:glass",
+    "minecraft:light_blue_dye"
+  ],
+  "result": {
+    "id": "wroughtiron:dyed_water",
+    "count": 1
+  }
+}

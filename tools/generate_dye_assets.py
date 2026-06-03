@@ -66,6 +66,36 @@ def name_tag_texture():
     save(img, "item", "dyeable_name_tag.png")
 
 
+def water_texture():
+    """A light, translucent ripple texture; tinted + rendered translucent at runtime."""
+    rng = random.Random(7)
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            base = 235 + rng.randint(-8, 8)
+            # faint horizontal ripples
+            if y % 4 == 0:
+                base -= 18
+            base = max(180, min(245, base))
+            px[x, y] = (base, base, base, 190)
+    save(img, "block", "dyed_water.png")
+
+
+def horse_armor_texture():
+    """A grayscale barding icon, tinted by the item colour provider."""
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    # saddle/barding silhouette
+    d.polygon([(3, 6), (12, 6), (13, 10), (8, 13), (3, 11)], fill=(225, 225, 225, 255),
+              outline=(150, 150, 150, 255))
+    d.line([(6, 3), (9, 3)], fill=(160, 160, 160, 255))  # strap
+    d.line([(7, 3), (7, 6)], fill=(160, 160, 160, 255))
+    d.line([(5, 8), (11, 8)], fill=(180, 180, 180, 255))
+    d.ellipse([6, 9, 9, 11], outline=(160, 160, 160, 255))
+    save(img, "item", "dyeable_horse_armor.png")
+
+
 def save(img, *parts):
     path = os.path.join(ASSETS, "textures", *parts)
     ensure(os.path.dirname(path))
@@ -105,25 +135,45 @@ def gen_models():
     write_json(os.path.join(ASSETS, "models", "item", "dyeable_name_tag.json"),
                {"parent": "minecraft:item/generated",
                 "textures": {"layer0": f"{MOD_ID}:item/dyeable_name_tag"}})
-    # blockstate
+    # horse armor item model
+    write_json(os.path.join(ASSETS, "models", "item", "dyeable_horse_armor.json"),
+               {"parent": "minecraft:item/generated",
+                "textures": {"layer0": f"{MOD_ID}:item/dyeable_horse_armor"}})
+    # dyed water block model (all faces tinted, translucent texture)
+    write_json(os.path.join(ASSETS, "models", "block", "dyed_water.json"), {
+        "parent": "minecraft:block/block",
+        "textures": {
+            "all": f"{MOD_ID}:block/dyed_water",
+            "particle": f"{MOD_ID}:block/dyed_water",
+        },
+        "elements": [{
+            "from": [0, 0, 0],
+            "to": [16, 16, 16],
+            "faces": tinted_cube_faces(),
+        }],
+    })
+    write_json(os.path.join(ASSETS, "models", "item", "dyed_water.json"),
+               {"parent": f"{MOD_ID}:block/dyed_water"})
+    # blockstates
     write_json(os.path.join(ASSETS, "blockstates", "dyeable_wool.json"),
                {"variants": {"": {"model": f"{MOD_ID}:block/dyeable_wool"}}})
+    write_json(os.path.join(ASSETS, "blockstates", "dyed_water.json"),
+               {"variants": {"": {"model": f"{MOD_ID}:block/dyed_water"}}})
 
 
 # ---------------------------------------------------------------------------
 # Loot / recipes / tags
 # ---------------------------------------------------------------------------
 
-def gen_loot():
-    # Drop the wool and copy the stored colour back onto the item.
-    write_json(os.path.join(DATA, MOD_ID, "loot_table", "blocks", "dyeable_wool.json"), {
+def _copy_color_loot(block_id):
+    return {
         "type": "minecraft:block",
         "pools": [{
             "rolls": 1.0,
             "bonus_rolls": 0.0,
             "entries": [{
                 "type": "minecraft:item",
-                "name": f"{MOD_ID}:dyeable_wool",
+                "name": block_id,
                 "functions": [{
                     "function": "minecraft:copy_components",
                     "source": "block_entity",
@@ -132,7 +182,15 @@ def gen_loot():
             }],
             "conditions": [{"condition": "minecraft:survives_explosion"}],
         }],
-    })
+    }
+
+
+def gen_loot():
+    # Drop the block and copy the stored colour back onto the item.
+    write_json(os.path.join(DATA, MOD_ID, "loot_table", "blocks", "dyeable_wool.json"),
+               _copy_color_loot(f"{MOD_ID}:dyeable_wool"))
+    write_json(os.path.join(DATA, MOD_ID, "loot_table", "blocks", "dyed_water.json"),
+               _copy_color_loot(f"{MOD_ID}:dyed_water"))
 
 
 def gen_recipes():
@@ -143,6 +201,20 @@ def gen_recipes():
         "category": "building",
         "ingredients": ["minecraft:white_wool"],
         "result": {"id": f"{MOD_ID}:dyeable_wool", "count": 1},
+    })
+    # Craft a dyed water block from glass + a starter dye.
+    write_json(os.path.join(rdir, "dyed_water.json"), {
+        "type": "minecraft:crafting_shapeless",
+        "category": "building",
+        "ingredients": ["minecraft:glass", "minecraft:light_blue_dye"],
+        "result": {"id": f"{MOD_ID}:dyed_water", "count": 1},
+    })
+    # Convert a leather horse armor into the dyeable variant.
+    write_json(os.path.join(rdir, "dyeable_horse_armor.json"), {
+        "type": "minecraft:crafting_shapeless",
+        "category": "equipment",
+        "ingredients": ["minecraft:leather_horse_armor"],
+        "result": {"id": f"{MOD_ID}:dyeable_horse_armor", "count": 1},
     })
     # Craft a dyeable name tag from a vanilla name tag.
     write_json(os.path.join(rdir, "dyeable_name_tag.json"), {
@@ -167,7 +239,12 @@ def gen_recipes():
 def gen_tags():
     # The vanilla dye-mixing recipe applies to everything in #minecraft:dyeable.
     write_json(os.path.join(DATA, "minecraft", "tags", "item", "dyeable.json"),
-               {"replace": False, "values": [f"{MOD_ID}:dyeable_wool", f"{MOD_ID}:dyeable_name_tag"]})
+               {"replace": False, "values": [
+                   f"{MOD_ID}:dyeable_wool",
+                   f"{MOD_ID}:dyed_water",
+                   f"{MOD_ID}:dyeable_name_tag",
+                   f"{MOD_ID}:dyeable_horse_armor",
+               ]})
 
 
 def merge_lang():
@@ -176,13 +253,17 @@ def merge_lang():
     if os.path.exists(path):
         lang = json.load(open(path))
     lang[f"block.{MOD_ID}.dyeable_wool"] = "Dyeable Wool"
+    lang[f"block.{MOD_ID}.dyed_water"] = "Dyed Water"
     lang[f"item.{MOD_ID}.dyeable_name_tag"] = "Dyeable Name Tag"
+    lang[f"item.{MOD_ID}.dyeable_horse_armor"] = "Dyeable Horse Armor"
     write_json(path, lang)
 
 
 def main():
     wool_texture()
     name_tag_texture()
+    water_texture()
+    horse_armor_texture()
     gen_models()
     gen_loot()
     gen_recipes()
