@@ -26,6 +26,7 @@ public class WroughtIronMod implements ModInitializer {
 		ModBlocks.initialize();
 		ModItems.initialize();
 		ModItemGroups.initialize();
+		com.mcmodd.wroughtiron.dye.ModDye.initialize();
 
 		LOGGER.info("[{}] Wrought iron and steel are ready for the forge.", MOD_ID);
 	}

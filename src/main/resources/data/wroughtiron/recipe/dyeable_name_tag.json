@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:name_tag"
+  ],
+  "result": {
+    "id": "wroughtiron:dyeable_name_tag",
+    "count": 1
+  }
+}

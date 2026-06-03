@@ -3,8 +3,8 @@
 	"id": "wroughtiron",
 	"version": "${version}",
 
-	"name": "Wrought Iron & Steel",
-	"description": "Refine iron the old-fashioned way. Smelt iron into wrought iron, forge steel from iron and charcoal, and build with a full set of wrought iron and steel tools, armor, and decorative blocks (bars, lanterns, chains, doors and trapdoors). Inspired by Mogswamp's 'The iron problem' short.",
+	"name": "Wrought Iron, Steel & Dyes",
+	"description": "Refine iron into wrought iron, forge steel from iron and charcoal, and build with full wrought iron and steel tool, armor and decorative sets. Plus a dye rework: dye wool to any shade (mixed like leather armor), and colored + glowing name tags. Inspired by Mogswamp's 'The iron problem' short.",
 	"authors": [
 		"skylerressi"
 	],
@@ -19,6 +19,9 @@
 	"entrypoints": {
 		"main": [
 			"com.mcmodd.wroughtiron.WroughtIronMod"
+		],
+		"client": [
+			"com.mcmodd.wroughtiron.client.WroughtIronClient"
 		]
 	},
 	"depends": {
