@@ -48,5 +48,8 @@ public class WroughtIronClient implements ClientModInitializer {
 
 		// Render dyed water translucently so the tint reads like water.
 		BlockRenderLayerMap.INSTANCE.putBlock(ModDye.DYED_WATER, RenderLayer.getTranslucent());
+
+		// EXPERIMENTAL (this branch only): fluid rendering + item frame renderer.
+		com.mcmodd.wroughtiron.experimental.ExperimentalClient.onInitializeClient();
 	}
 }

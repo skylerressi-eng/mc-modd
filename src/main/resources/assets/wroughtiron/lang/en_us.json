@@ -37,5 +37,9 @@
   "block.wroughtiron.dyeable_wool": "Dyeable Wool",
   "item.wroughtiron.dyeable_name_tag": "Dyeable Name Tag",
   "block.wroughtiron.dyed_water": "Dyed Water",
-  "item.wroughtiron.dyeable_horse_armor": "Dyeable Horse Armor"
+  "item.wroughtiron.dyeable_horse_armor": "Dyeable Horse Armor",
+  "item.wroughtiron.dyed_water_bucket": "Dyed Water Bucket",
+  "item.wroughtiron.dyeable_item_frame": "Dyeable Item Frame",
+  "entity.wroughtiron.dyeable_item_frame": "Dyeable Item Frame",
+  "block.wroughtiron.dyed_water_fluid": "Dyed Water"
 }

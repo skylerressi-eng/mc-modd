@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:water_bucket",
+    "minecraft:purple_dye"
+  ],
+  "result": {
+    "id": "wroughtiron:dyed_water_bucket",
+    "count": 1
+  }
+}
